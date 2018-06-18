@@ -1,0 +1,26 @@
+{
+  "name": "uc-dom",
+  "version": "1.0.0",
+  "description": "The only DOM abstraction you will need",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/unchainedui/dom.git"
+  },
+  "keywords": [
+    "unchained",
+    "ui",
+    "browser",
+    "dom",
+    "kiss"
+  ],
+  "author": "Alexey Novikov <v@2dubs.com> (http://2dubs.com)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/unchainedui/dom/issues"
+  },
+  "homepage": "https://github.com/unchainedui/dom#readme"
+}
