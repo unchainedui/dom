@@ -26,6 +26,8 @@ returns:
 * `HTMLCollection` if selector is a class
 * `NodeList` for everything else
 
+Parameters:
+
 * `selector` — css selector
 * `root` — default is _document_. root element to look in
 
