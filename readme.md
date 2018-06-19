@@ -79,7 +79,7 @@ Sets up a `handler` function to be called whenever the specified event is delive
 
 Returns a `handler` function
 
-### off(el, event, handler, options)
+#### off(el, event, handler, options)
 
 Removes previously registered an `event` listener from the `el`.
 
