@@ -15,6 +15,7 @@ const html = [
     dom[method].apply(null, [ this.el ].concat(args));
     return this;
   }
+  return obj;
 }, {});
 
 html.attr = function(name, value) {
