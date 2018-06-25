@@ -101,6 +101,39 @@ Toggle `cls` value. When the `force` is present, if is is evaluates to true, add
 
 Replace all classes that match the `rx` regexp with `newClass`. Returns the number of new classes.
 
+### UI component methods
+
+```js
+import compose from 'uc-compose';
+import domMethods from 'uc-dom/methods';
+
+const MyUIComponent = function() {}
+
+MyUIComponent.prototype = compose(
+  domMethods,
+  {
+    componentMethod: function() {
+      // add class active to this.el
+      this.addClass('active');
+    }
+  }
+)
+
+```
+
+This mixin adds following methods to your class (all the methods use `this.el`):
+
+* addClass
+* removeClass
+* toggleClass
+* replaceClass
+* appendTo
+* prependTo
+* insertBefore
+* insertAfter
+* find
+* attr
+
 License MIT
 
 © velocityzen

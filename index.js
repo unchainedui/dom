@@ -1,4 +1,3 @@
-'use strict';
 const rxQuery = /^\s*([>+~])?\s*([*\w-]+)?(?:#([\w-]+))?(?:\.([\w.-]+))?\s*/;
 const rxClassOnly = /^\.([-\w]+)$/;
 const rxIdOnly = /^#([-\w]+)$/;
@@ -95,7 +94,7 @@ export function attr(el, name, value) {
     return el.getAttribute(name);
   }
 
-  return el.setAttribute(name, value);
+  el.setAttribute(name, value);
 }
 
 export function append(parent, el) {
