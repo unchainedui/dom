@@ -171,6 +171,11 @@ export function toggleClass(el, cls, force) {
   return el.classList.toggle(cls, force);
 }
 
+export function addDelayRemoveClass(el, cls, delay) {
+  addClass(el, cls);
+  return setTimeout(() => removeClass(el, cls), delay);
+}
+
 export function replaceClass(el, rx, newClass) {
   const newClasses = [];
   attr(el, 'class').split(' ').forEach(function(cls) {
