@@ -2,6 +2,9 @@
 
 ## DOM
 
+[![NPM Version](https://img.shields.io/npm/v/uc-dom.svg?style=flat-square)](https://www.npmjs.com/package/uc-dom)
+[![NPM Downloads](https://img.shields.io/npm/dt/uc-dom.svg?style=flat-square)](https://www.npmjs.com/package/uc-dom)
+
 The only DOM abstraction you will need
 
 ### Usage
