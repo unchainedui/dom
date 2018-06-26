@@ -159,6 +159,25 @@ export function once(el, event, handler, options) {
   return _handler;
 }
 
+export const ALL_EVENTS = '__events';
+export function onEvents(ctx, events) {
+  if (!ctx[ALL_EVENTS]) {
+    ctx[ALL_EVENTS] = {}
+  }
+
+  for (const event in events) {
+    ctx[ALL_EVENTS][event] = on(ctx.el, event, events[event]);
+  }
+}
+
+export function offEvents(ctx) {
+  const events = ctx[ALL_EVENTS];
+  for (const event in events) {
+    off(ctx.el, event, events[event]);
+  }
+  delete ctx[ALL_EVENTS];
+}
+
 export function addClass(el, ...cls) {
   return el.classList.add(...cls);
 }

@@ -81,9 +81,15 @@ Returns a `handler` function
 
 #### off(el, event, handler, options)
 
-Removes previously registered an `event` listener from the `el`.
+Removes previously registered an `event` listener from the `el`. Returns a `handler` function.
 
-Returns a `handler` function
+#### onEvents(ctx, events)
+
+Addes all event handlers from `events` object to `ctx.el`.
+
+#### offEvents(ctx)
+
+Removes all event handlers for `ctx.el` added with `onEvents` method.
 
 #### addClass(el, string[, string])
 
