@@ -110,9 +110,9 @@ Toggle `cls` value. When the `force` is present, if is is evaluates to true, add
 
 Replace all classes that match the `rx` regexp with `newClass`. Returns the number of new classes.
 
-#### addDelayRemoveClass(el, cls, delay)
+#### addDelayRemoveClass(el, cls, delay[, cb])
 
-Adds `cls`, waits `delay` ms and then `removes` it. Returns timeoutID, it can be passed to clearTimeout() to cancel the timeout.
+Adds `cls`, waits `delay` ms and then `removes` it. Returns timeoutID, it can be passed to clearTimeout() to cancel the timeout. The optional `cb` function will be called after class is removed.
 
 ### UI component methods
 

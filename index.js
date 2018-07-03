@@ -190,9 +190,12 @@ export function toggleClass(el, cls, force) {
   return el.classList.toggle(cls, force);
 }
 
-export function addDelayRemoveClass(el, cls, delay) {
+export function addDelayRemoveClass(el, cls, delay, cb) {
   addClass(el, cls);
-  return setTimeout(() => removeClass(el, cls), delay);
+  return setTimeout(() => {
+    removeClass(el, cls);
+    cb && cb();
+  }, delay);
 }
 
 export function replaceClass(el, rx, newClass) {
