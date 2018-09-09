@@ -78,7 +78,11 @@ export function create(selector, content) {
   }
 
   if (content) {
-    el.innerHTML = content;
+    if (content instanceof Node) {
+      el.appendChild(content);
+    } else {
+      el.innerHTML = content;
+    }
   }
 
   return el;
@@ -223,4 +227,3 @@ export function insertAfter(el, node) {
 export function remove(el) {
   return el.parentNode.removeChild(el);
 }
-
