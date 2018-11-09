@@ -1,6 +1,22 @@
-const rxQuery = /^\s*([>+~])?\s*([*\w-]+)?(?:#([\w-]+))?(?:\.([\w.-]+))?\s*/;
+const rxQuery = /^\s*([>+~])?\s*([*\w-]+)?(?:\[([\w-=[\]]+)\])?(?:#([\w-]+))?(?:\.([\w.-]+))?\s*/;
 const rxClassOnly = /^\.([-\w]+)$/;
 const rxIdOnly = /^#([-\w]+)$/;
+
+function parseAttributes(string) {
+  if (!string) {
+    return;
+  }
+
+  return string.split('][').reduce((res, string) => {
+    const parts = string.split('=');
+    res[parts[0]] = parts[1] || '';
+    return res;
+  }, {});
+}
+
+function parseClasses(string) {
+  return string ? string.split('.') : undefined;
+}
 
 export function get(selector, root = document) {
   const id = selector.match(rxIdOnly);
@@ -29,8 +45,9 @@ export function query(selector) {
       out.push({
         rel: f[1],
         tag: (f[2] || '').toUpperCase(),
-        id: f[3],
-        classes: (f[4]) ? f[4].split('.') : undefined
+        attributes: parseAttributes(f[3]),
+        id: f[4],
+        classes: parseClasses(f[5])
       });
       selector = selector.substring(f[0].length);
     }
@@ -75,6 +92,13 @@ export function create(selector, content) {
   const classes = s.classes;
   if (classes) {
     el.className = classes.join(' ');
+  }
+
+  const attrs = s.attributes;
+  if (attrs) {
+    for (const name in attrs) {
+      el.setAttribute(name, attrs[name]);
+    }
   }
 
   if (content) {
@@ -163,7 +187,7 @@ export function once(el, event, handler, options) {
   return _handler;
 }
 
-export const ALL_EVENTS = '__events';
+export const ALL_EVENTS = '__on';
 export function onEvents(ctx, events) {
   if (!ctx[ALL_EVENTS]) {
     ctx[ALL_EVENTS] = {}
