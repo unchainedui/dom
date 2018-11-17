@@ -112,6 +112,14 @@ export function create(selector, content) {
   return el;
 }
 
+export function empty(el) {
+  while (el.firstChild) {
+    el.removeChild(el.firstChild);
+  }
+
+  return el;
+}
+
 export function closest(el, selector) {
   while (!el.matches(selector) && (el = el.parentElement));
   return el;

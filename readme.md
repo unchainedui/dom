@@ -66,6 +66,10 @@ Inserts a `node` before the `el` as a child of its parent node
 
 Inserts a `node` after the `el` as a child of its parent node
 
+#### empty(el)
+
+Removes all the child elements from the `el` element
+
 #### remove(el)
 
 Removes `el` from the DOM
